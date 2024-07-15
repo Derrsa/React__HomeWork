@@ -5,18 +5,20 @@ import {Button} from "./components/buttons/Button.tsx";
 import SelectTime from "./components/inputs/SelectTime.tsx";
 import {useContext} from "react";
 import {SettingsContext} from "./components/Context.tsx";
+import {typeOptions} from "./mockData/data.ts";
+
 
 function App() {
-    const {category} = useContext(SettingsContext)
+    const {categoryOptions,difficultyOptions} = useContext(SettingsContext)
   return (
       <>
           <h1>Quizabro Codabro!</h1>
           <h2>Settings:</h2>
           <div className='main__wrapper'>
               <Input/>
-              <Select category={'Categories'} options={category}/>
-              <Select category={'Difficulty'}/>
-              <Select category={'Type'}/>
+              <Select category={'Categories'} options={categoryOptions}/>
+              <Select category={'Difficulty'} options={difficultyOptions}/>
+              <Select category={'Type'} options={typeOptions}/>
               <SelectTime/>
 
           </div>

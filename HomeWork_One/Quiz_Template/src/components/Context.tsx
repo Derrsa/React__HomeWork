@@ -1,14 +1,14 @@
 import {createContext, useState} from "react";
+import {difficultyOptions,typeOptions,timeOptions,categoryOptions} from "../mockData/data.ts";
 
 export const SettingsContext = createContext({
 })
 
 export const SettingsProvider = ({children}) => {
-    const [category,setCategory] = useState(['Animal', 'Cars'])
-    const [time,setTime] = useState(['1m','2m','5m'])
+
 
     return(
-        <SettingsContext.Provider value = {{category,time}} >
+        <SettingsContext.Provider value = {{difficultyOptions,typeOptions,timeOptions,categoryOptions}} >
             {children}
         </SettingsContext.Provider>
     )

@@ -1,18 +1,20 @@
 import './Select.css'
 import {SettingsContext} from "../Context.tsx";
 import {useContext} from "react";
+import { v4 as uuidv4 } from 'uuid'
 
-function SelectTime({category}) {
-    const {time} = useContext(SettingsContext)
+function SelectTime() {
+    const {timeOptions} = useContext(SettingsContext)
+    console.log(timeOptions)
     return(
         <>
             <div className='input-container'>
-                <label htmlFor="select" className="select-label">{category}</label>
+                <label htmlFor="select" className="select-label">Time</label>
                 <select name="select-setting" className="select">
                     {
-                        time? time.map((el,index)=>{
+                        timeOptions ? timeOptions.map((el)=>{
                             return (
-                                <option key={index}>{el}</option>
+                                <option key={el.id}>{el.value}</option>
                             )
                         }) : <option value="">template</option>
                     }
