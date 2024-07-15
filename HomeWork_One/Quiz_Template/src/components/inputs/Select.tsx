@@ -6,9 +6,9 @@ function Select({category,options}) {
                 <label htmlFor="select" className="select-label">{category}</label>
                 <select name="select-setting" className="select">
                     {
-                        options? options.map(el=>{
+                        options? options.map((el,index)=>{
                             return (
-                                <option>{el}</option>
+                                <option key={index}>{el}</option>
                             )
                         }) : <option value="">template</option>
                     }

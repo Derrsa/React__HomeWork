@@ -10,9 +10,9 @@ function SelectTime({category}) {
                 <label htmlFor="select" className="select-label">{category}</label>
                 <select name="select-setting" className="select">
                     {
-                        time? time.map(el=>{
+                        time? time.map((el,index)=>{
                             return (
-                                <option>{el}</option>
+                                <option key={index}>{el}</option>
                             )
                         }) : <option value="">template</option>
                     }
