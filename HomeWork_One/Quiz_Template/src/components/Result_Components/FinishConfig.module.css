@@ -1,0 +1,15 @@
+h3{
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.config__content{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+.config__content span{
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}

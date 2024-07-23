@@ -1,8 +1,12 @@
 import './Button.css'
-export function Button({title}) {
+import {Link} from "react-router-dom";
+export function Button({title,route,click}) {
     return(
         <>
-            <button className='btn'>{title}</button>
+            <Link onClick={click} to={route}>
+                <button className='btn'>{title}</button>
+            </Link>
+
         </>
     )
 }

@@ -1,8 +1,6 @@
 import './Select.css'
-import { v4 as uuidv4 } from 'uuid'
 
 function Select({category,options}) {
-    console.log(options)
     return(
         <>
             <div className='input-container'>

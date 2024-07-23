@@ -1,63 +1,90 @@
-import { v4 as uuidv4 } from 'uuid'
-interface IData  {
-    id: string
-    name: string
-}
+
 
 export const categoryOptions = [
     {
-        id: uuidv4(),
+        id: 'AniId',
         value: 'Animals'
     },
     {
-        id: uuidv4(),
+        id:'CarId',
         value: 'Cars'
     },
     {
-        id: uuidv4(),
+        id: "GaID",
         value: 'Games'
     }
 ]
 export const timeOptions = [
     {
-        id: uuidv4(),
+        id: "OneId",
         value: '1m'
     },
     {
-        id: uuidv4(),
+        id: 'TwoId',
         value: '2m'
     },
     {
-        id: uuidv4(),
+        id: 'FiveId',
         value: '5m'
     }
 ]
 
 export const difficultyOptions = [
     {
-        id: uuidv4(),
+        id: 'EsId',
         value: 'Easy'
     },
     {
-        id: uuidv4(),
+        id: 'MedID',
         value: 'Medium'
     },
     {
-        id: uuidv4(),
+        id: 'HardId',
         value: 'Hard'
     }
 ]
 
 export const typeOptions = [
     {
-        id: uuidv4(),
+        id: 'MultID',
         value: 'Multiple'
     },
     {
-        id: uuidv4(),
+        id: "SinID",
         value: 'One answer'
     },
 ]
+
+export const questionOption = {
+    title: 'What is the best name ever?',
+    answers: ['Vlad', 'vlaD' ,'vLaD'],
+    id: 'keyOne'
+}
+interface IStatistic {
+    correct: number
+    common: number
+    time: string
+}
+
+interface IConfiguration {
+    category: string
+    difficult: string
+    type: string
+    time: string
+}
+
+export const statisticOption: IStatistic = {
+    correct:5,
+    common: 10,
+    time: '15min'
+}
+
+export const configurationOption: IConfiguration = {
+    category: 'Animal',
+    difficult: 'Easy',
+    type: 'One variant',
+    time: '5min',
+}
 
 
 

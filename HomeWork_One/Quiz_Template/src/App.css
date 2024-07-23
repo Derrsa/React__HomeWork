@@ -5,7 +5,7 @@
   padding: 10px;
   text-align: center;
   z-index: 2;
-  color: #00b0ff;
+  color: #101013;
 }
 h1{
   font-size: 50px;
@@ -23,7 +23,6 @@ h2{
   flex-direction: row;
   flex-wrap: wrap;
   gap: 50px;
-  /*justify-content: center;*/
   align-items: center;
   margin-bottom: 50px;
 }

@@ -7,10 +7,10 @@
     border-bottom: 2px solid #3498db;
     background: none;
     font-size: 18px;
-    outline: none;       /* Цвет фона */
-    cursor: pointer;              /* Курсор указателя */
-    appearance: none;             /* Замена стандартного вида */
-    /* ... другие стили ... */
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+
 
 }
 

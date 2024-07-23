@@ -1,0 +1,12 @@
+.statistic__wrapper li{
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.statistic__wrapper ul{
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
