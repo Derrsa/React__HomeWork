@@ -16,7 +16,6 @@ export function InitialScreen() {
                 <Select category={'Difficulty'} options={difficultyOptions}/>
                 <Select category={'Type'} options={typeOptions}/>
                 <Select category={'Time'} options={timeOptions}/>
-
             </div>
             <div className="btns-group">
                 <Button title='Start quiz' route={'/main/1Q'}/>
