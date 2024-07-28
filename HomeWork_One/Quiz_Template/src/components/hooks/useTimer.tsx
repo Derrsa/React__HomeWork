@@ -1,23 +1,22 @@
-import {useEffect, useRef} from "react";
+import { useEffect, useRef } from "react";
+type UseTimerCallback = () => void;
+export function useTimer(callback: UseTimerCallback, enabled: boolean) {
+  const savedCallback = useRef<UseTimerCallback | null>(null);
 
-export function useTimer(callback,enabled) {
-    const savedCallback = useRef<FC | null>(null)
+  useEffect(() => {
+    savedCallback.current = callback;
+  });
+  // function reUse() {
+  //   return (savedCallback.current = callback);
+  // }
 
-    useEffect(()=>{
-        savedCallback.current = callback
-    })
-
-    useEffect(() => {
-        function tick() {
-            savedCallback.current()
-        }
-        if(!enabled){
-            const id = setInterval(tick,1000)
-            return ()=> clearInterval(id)
-        }
-
-
-    }, [enabled]);
-
-
+  useEffect(() => {
+    function tick() {
+      savedCallback.current();
+    }
+    if (!enabled) {
+      const id = setInterval(tick, 1000);
+      return () => clearInterval(id);
+    }
+  }, [enabled]);
 }
