@@ -15,7 +15,7 @@ export function useTimer(callback: UseTimerCallback, enabled: boolean) {
       savedCallback.current();
     }
     if (!enabled) {
-      const id = setInterval(tick, 1000);
+      const id = setInterval(tick, 100000);
       return () => clearInterval(id);
     }
   }, [enabled]);

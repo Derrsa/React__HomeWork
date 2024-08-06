@@ -2,17 +2,19 @@ import style from "./QuestionForm.module.css";
 import { Button } from "../buttons/Button.tsx";
 import { Timer } from "./Timer.tsx";
 import { useParams } from "react-router-dom";
-import { questionsData } from "../../mockData/questionsData.ts";
 import { Modal } from "../Modal/Modal.tsx";
 import { useState } from "react";
-import { Question } from "./Question.tsx";
+import { Answer } from "./Answer.tsx";
+import { useSelector } from "react-redux";
+import { selectQuestions } from "../../redux/questions/questionsSlice.tsx";
 
 export function QuestionForm() {
-  const routerParam = useParams<{ questionId: string }>();
-  const currentData = questionsData.find((el) => {
-    return el?.id === routerParam?.questionId;
+  const routerParam = Number(useParams<{ questionId: string }>().questionId);
+  const questions = useSelector(selectQuestions).questions;
+  const currentData = questions.find((el, index) => {
+    return index === routerParam;
   });
-  const lastQuestion = questionsData.length;
+  const lastQuestion = questions.length - 1;
   const [closeModal, setCloseModal] = useState(false);
   const [isTimerOut, setIsTimerOut] = useState(false);
   function setModal() {
@@ -22,32 +24,39 @@ export function QuestionForm() {
     setIsTimerOut(!isTimerOut);
   }
   function checkLastQuestion(numberOfQuestion, lastQuestion) {
-    return numberOfQuestion === lastQuestion;
+    console.log(numberOfQuestion === lastQuestion);
+    return Number(numberOfQuestion) === lastQuestion;
   }
+
   return (
     <form className={style.question__wrapper}>
       <Modal condition={closeModal} setCondition={setModal} />
       <Timer setIsEnd={setTimer} timeInterval={"1m"} />
-      <h2 className={style.question__title}>{`${currentData.title}`}</h2>
+      <h2 className={style.question__title}>{`${currentData.question}`}</h2>
       <div className={style.question__answersList}>
-        {currentData.variant.map((el) => {
+        {currentData.incorrect_answers.map((el) => {
           return (
-            <Question
-              keyName={el}
-              id={currentData.id}
-              data={el === currentData.answer ? 1 : 0}
+            <Answer
+              question={currentData.question}
+              answer={currentData.correct_answer}
+              variant={el}
             />
           );
         })}
+        <Answer
+          question={currentData.question}
+          answer={currentData.correct_answer}
+          variant={currentData.correct_answer}
+        />
       </div>
       <div className={style.question__buttons}>
         <Button click={setModal} title="End Quizabro" />
         <Button
           title={"Next question"}
           route={
-            checkLastQuestion(lastQuestion, parseInt(currentData.id))
+            checkLastQuestion(lastQuestion, routerParam)
               ? "/result"
-              : `../${parseInt(currentData.id) + 1}Q`
+              : `../${routerParam + 1}`
           }
         />
       </div>
