@@ -27,14 +27,21 @@ export const questionsSlice = createSlice({
     setError(state, action) {
       state.error = action.payload;
     },
+    resetQuestions(state) {
+      state.questions = [undefined];
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchQuestions.fulfilled, (state, action) => {
       state.questions = action.payload;
     });
+    builder.addCase(fetchQuestions.rejected, (state, action) => {
+      state.error = action.error.message;
+    });
   },
 });
 
-export const { setQuestions, setStatus, setError } = questionsSlice.actions;
+export const { setQuestions, setStatus, resetQuestions, setError } =
+  questionsSlice.actions;
 export const selectQuestions = (state) => state.questions;
 export default questionsSlice.reducer;
