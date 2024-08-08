@@ -1,0 +1,24 @@
+.question__wrapper{
+    padding-left: 50px;
+    text-align: left;
+}
+.question__title{
+    font-size: 35px;
+    font-weight: bolder;
+}
+.question__answersList{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+}
+.question__answer__block{
+    font-size: 25px;
+    font-weight: 600;
+}
+.question__answer__block input{
+    margin-right: 10px;
+}
+.question__buttons{
+    display: flex;
+}
+
