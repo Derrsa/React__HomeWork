@@ -32,7 +32,6 @@ export function QuestionForm() {
     setCurrentAnswer(value);
   }
   function checkCorrectAnswer() {
-    console.log(currentAnswer, currentData.correct_answer);
     if (currentAnswer === currentData.correct_answer) {
       dispatch(increaseCorrect());
     }
