@@ -3,8 +3,15 @@ import axios from "axios";
 
 export const fetchQuestions = createAsyncThunk(
   "questions/fetchQuestions",
-  async (api) => {
-    const res = await axios.get(api);
+  async (config) => {
+    const res = await axios.get("https://opentdb.com/api.php", {
+      params: {
+        amount: config.numberQuestions,
+        category: config.category,
+        difficulty: config.difficulty,
+        type: config.type,
+      },
+    });
     return res.data.results;
   },
 );

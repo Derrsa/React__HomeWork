@@ -3,6 +3,7 @@ import { SettingsContext } from "./Context.tsx";
 import Input from "./inputs/input.tsx";
 import Select from "./inputs/Select.tsx";
 import { Button } from "./buttons/Button.tsx";
+import { StartButton } from "./buttons/StartButton.tsx";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchQuestions } from "../redux/questions/questionsSlice.tsx";
 import { selectOption } from "../redux/configuration/configSlice.ts";
@@ -15,12 +16,8 @@ export function InitialScreen() {
   const dispatch = useDispatch();
   const config = useSelector(selectOption);
 
-  const handleGetQuestions = () => {
-    dispatch(
-      fetchQuestions(
-        `https://opentdb.com/api.php?amount=${config.numberQuestions}&category=${config.category}&difficulty=${config.difficulty}&type=${config.type}`,
-      ),
-    );
+  const handleGetQuestions = async () => {
+    await dispatch(fetchQuestions(config));
     dispatch(
       setInitTime({
         hour: new Date().getHours(),
@@ -48,10 +45,14 @@ export function InitialScreen() {
         />
         <Select name={"type"} category={"Type"} options={typeOptions} />
         <Select name={"time"} category={"Time"} options={timeOptions} />
-        <button onClick={handleGetQuestions}>Confirm Options</button>
       </div>
       <div className="btns-group">
-        <Button title="Start quiz" route="/main/0" />
+        <StartButton
+          title="Start quiz"
+          route="/main/0"
+          handleClick={handleGetQuestions}
+        />
+
         <Button title="See my stats" route={"/statistic"} />
       </div>
     </>
