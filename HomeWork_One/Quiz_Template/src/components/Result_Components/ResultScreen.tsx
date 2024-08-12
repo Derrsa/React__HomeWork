@@ -16,11 +16,7 @@ export function ResultScreen() {
 
   const handleGetQuestions = () => {
     dispatch(resetGameInfo());
-    dispatch(
-      fetchQuestions(
-        `https://opentdb.com/api.php?amount=${config.numberQuestions}&category=${config.category}&difficulty=${config.difficulty}&type=${config.type}`,
-      ),
-    );
+    dispatch(fetchQuestions(config));
   };
   function resetSettings() {
     dispatch(resetGameInfo());

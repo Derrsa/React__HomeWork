@@ -10,22 +10,22 @@ import {
   REGISTER,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import configReducer, { configSlice } from "./configuration/configSlice.ts";
-import questionsReducer, {
-  questionsSlice,
-} from "./questions/questionsSlice.tsx";
+import configReducer from "./configuration/configSlice.ts";
+import questionsReducer from "./questions/questionsSlice.tsx";
 import gameInfoReducer from "./gameInfo/gameInfoSlice.ts";
+import statisticReducer from "./statistic/statisticSlice.tsx";
 
 const rootReducer = combineReducers({
   config: configReducer,
   questions: questionsReducer,
   gameInfo: gameInfoReducer,
+  statistic: statisticReducer,
 });
 
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: [],
+  whitelist: ["statistic"],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

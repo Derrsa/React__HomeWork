@@ -5,7 +5,7 @@ import "./index.css";
 import { SettingsProvider } from "./components/Context.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { MainScreen } from "./components/Main_Components/MainScreen.tsx";
-import { InitialScreen } from "./components/InitialScreen.tsx";
+import { InitialScreen } from "./components/Initial_Components/InitialScreen.tsx";
 import { QuestionForm } from "./components/Main_Components/QuestionForm.tsx";
 import { ResultScreen } from "./components/Result_Components/ResultScreen.tsx";
 import { StatisticScreen } from "./components/Statistic_Components/StatisticScreen.tsx";

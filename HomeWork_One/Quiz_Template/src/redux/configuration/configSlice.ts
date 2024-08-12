@@ -14,6 +14,13 @@ export const configSlice = createSlice({
   reducers: {
     setOptions: (state, action) => {
       const { name, value } = action.payload;
+      if (name === "numberQuestions") {
+        state.confOptions[name] = Number(value);
+        return;
+      } else if (name === "category") {
+        state.confOptions[name] = Number(value);
+        return;
+      }
       state.confOptions[name] = value;
     },
   },

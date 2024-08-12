@@ -1,15 +1,6 @@
 import "./Input.css";
-import { useDispatch } from "react-redux";
-import { setOptions } from "../../redux/configuration/configSlice.ts";
 
-function Input({ name }) {
-  const dispatch = useDispatch();
-  const handleChange = (event) => {
-    const name = event.target.name;
-    const value = event.target.value;
-    dispatch(setOptions({ name, value }));
-  };
-
+function Input({ name, handleChangeSelect }) {
   return (
     <>
       <div className="input-container">
@@ -17,7 +8,7 @@ function Input({ name }) {
           Number of questions
         </label>
         <input
-          onChange={handleChange}
+          onChange={handleChangeSelect}
           type="number"
           max="15"
           min="5"

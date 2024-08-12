@@ -1,13 +1,12 @@
-import './App.css'
-import {InitialScreen} from "./components/InitialScreen.tsx";
-
+import "./App.css";
+import { InitialScreen } from "./components/Initial_Components/InitialScreen.tsx";
 
 function App() {
   return (
-      <>
-          <InitialScreen/>
-      </>
-  )
+    <>
+      <InitialScreen />
+    </>
+  );
 }
 
-export default App
+export default App;

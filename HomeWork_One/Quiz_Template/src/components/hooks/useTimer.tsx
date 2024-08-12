@@ -6,16 +6,13 @@ export function useTimer(callback: UseTimerCallback, enabled: boolean) {
   useEffect(() => {
     savedCallback.current = callback;
   });
-  // function reUse() {
-  //   return (savedCallback.current = callback);
-  // }
 
   useEffect(() => {
     function tick() {
       savedCallback.current();
     }
     if (!enabled) {
-      const id = setInterval(tick, 1000);
+      const id = setInterval(tick, 100000);
       return () => clearInterval(id);
     }
   }, [enabled]);

@@ -12,7 +12,7 @@ export const categoryOptions = [
   {
     id: "GaID",
     value: "Games",
-    code: 16,
+    code: 15,
   },
 ];
 export const timeOptions = [

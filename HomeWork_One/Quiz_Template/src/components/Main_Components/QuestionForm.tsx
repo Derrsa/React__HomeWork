@@ -8,14 +8,20 @@ import { Answer } from "./Answer.tsx";
 import { useDispatch, useSelector } from "react-redux";
 import { selectQuestions } from "../../redux/questions/questionsSlice.tsx";
 import { increaseCorrect } from "../../redux/gameInfo/gameInfoSlice.ts";
+import { setStatistic } from "../../redux/statistic/statisticSlice.tsx";
 
 export function QuestionForm() {
   const dispatch = useDispatch();
   const routerParam = Number(useParams<{ questionId: string }>().questionId);
   const questions = useSelector(selectQuestions).questions;
+
   const currentData = questions.find((el, index) => {
     return index === routerParam;
   });
+  const allQuestions = [
+    ...currentData.incorrect_answers,
+    currentData.correct_answer,
+  ];
   const lastQuestion = questions.length - 1;
 
   const [closeModal, setCloseModal] = useState(false);
@@ -34,6 +40,9 @@ export function QuestionForm() {
   function checkCorrectAnswer() {
     if (currentAnswer === currentData.correct_answer) {
       dispatch(increaseCorrect());
+      const name = "correctAnswers";
+      const value = 1;
+      dispatch(setStatistic({ name, value }));
     }
   }
 
@@ -47,22 +56,17 @@ export function QuestionForm() {
       <Timer setIsEnd={setTimer} timeInterval={"1m"} />
       <h2 className={style.question__title}>{`${currentData.question}`}</h2>
       <div className={style.question__answersList}>
-        {currentData.incorrect_answers.map((el) => {
+        {allQuestions.map((el, index) => {
           return (
             <Answer
+              key={el}
+              id={el + index}
               handleCurrentAnswer={handleCurrentAnswer}
               question={currentData.question}
-              answer={currentData.correct_answer}
               variant={el}
             />
           );
         })}
-        <Answer
-          handleCurrentAnswer={handleCurrentAnswer}
-          question={currentData.question}
-          answer={currentData.correct_answer}
-          variant={currentData.correct_answer}
-        />
       </div>
       <div className={style.question__buttons}>
         <Button click={setModal} title="End Quizabro" />
