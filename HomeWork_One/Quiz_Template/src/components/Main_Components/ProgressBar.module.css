@@ -1,0 +1,32 @@
+.main__wrapper{
+    margin-bottom: 30px;
+}
+.main__bar{
+    display: flex;
+    position: relative;
+    width: 400px;
+    height: 10px;
+    background-color: #b9afaf;
+    border-radius: 10px;
+    margin: 0 auto;
+}
+.main__progress{
+    display: inline;
+    position: relative;
+    width: 30%;
+    height: 10px;
+    background-color: #00b0ff;
+    border-radius: 10px;
+}
+
+.main__progress::after{
+    position: absolute;
+    content: '';
+    top: -5px;
+    right: -3px;
+    width: 10px;
+    height: 10px;
+    border: 5px solid purple;
+    background-color: transparent;
+    border-radius: 50%;
+}
