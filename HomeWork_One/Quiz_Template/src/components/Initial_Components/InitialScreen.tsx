@@ -12,6 +12,7 @@ import {
 } from "../../redux/configuration/configSlice.ts";
 import { setInitTime } from "../../redux/gameInfo/gameInfoSlice.ts";
 import { setStatistic } from "../../redux/statistic/statisticSlice.tsx";
+import { animate, delay, motion } from "framer-motion";
 
 export function InitialScreen() {
   const { difficultyOptions, typeOptions, timeOptions, categoryOptions } =
@@ -47,9 +48,20 @@ export function InitialScreen() {
 
   return (
     <>
-      <h1>Quizabro Codabro!</h1>
+      <motion.h1
+        initial={{ x: 1000 }}
+        animate={{ x: 0 }}
+        transition={{ ease: "easeOut", duration: 2, delay: 1 }}
+      >
+        Quizabro Codabro!
+      </motion.h1>
       <h2>Settings:</h2>
-      <div className="main__wrapper">
+      <motion.div
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{ ease: "easeOut", duration: 2, delay: 1 }}
+        className="main__wrapper"
+      >
         <Input
           name={"numberQuestions"}
           handleChangeSelect={handleChangeSelect}
@@ -78,7 +90,7 @@ export function InitialScreen() {
           category={"Time"}
           options={timeOptions}
         />
-      </div>
+      </motion.div>
       <div className="btns-group">
         <StartButton
           title="Start quiz"

@@ -6,6 +6,7 @@
   text-align: center;
   z-index: 2;
   color: #101013;
+  overflow: hidden;
 }
 h1{
   font-size: 50px;
