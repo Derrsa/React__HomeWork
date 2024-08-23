@@ -1,0 +1,31 @@
+.input-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 200px;
+}
+
+#styled-input {
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    border-bottom: 2px solid #3498db;
+    background: none;
+    font-size: 18px;
+    outline: none;
+    color: black;
+}
+
+
+
+
+.input-label {
+    font-weight: bold;
+    color:black;
+    font-size: 18px;
+    pointer-events: none;
+    transition: 0.2s ease all;
+}
+
+
+

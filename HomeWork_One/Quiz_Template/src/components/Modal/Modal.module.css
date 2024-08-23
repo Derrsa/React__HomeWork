@@ -1,0 +1,36 @@
+.modal__wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 102%;
+    height: 100vh;
+    background-color: rgba(16, 16, 19, 0.71);
+    color: #00b0ff;
+    transform: scale(0);
+
+}
+
+.modal__wrapper.active{
+    transform: scale(1);
+}
+
+
+
+
+
+.modal__content{
+    border: 2px solid #00b0ff;
+    padding: 50px;
+}
+
+.modal__content h3{
+    margin-bottom: 20px;
+}
+
+.modal__btns{
+    display: flex;
+    justify-content: center;
+}
